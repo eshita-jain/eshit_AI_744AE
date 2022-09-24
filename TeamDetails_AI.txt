@@ -1,0 +1,11 @@
+Fill in the details (should be same as those while registering for CNI Hackathon):
+
+Team Name:
+
+Team Member 1: (Assumed to be the team lead, by default)
+Name: Eshita Jain
+Email ID: eshita20100@iiitnr.edu.in
+
+Team Member 2:
+Name: Aniket Kumar
+Email ID: 
