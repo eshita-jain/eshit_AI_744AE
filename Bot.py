@@ -1,4 +1,3 @@
-
 import random
 from time import sleep
 
@@ -43,43 +42,45 @@ class player:
 
     def find_next(self,B,N,cur_x,cur_y):
         step_size=B[cur_x][cur_y]^3
-        dis=2*N+1
-        best = {"x":cur_x,"y":cur_y}
+        max_d=2*N+1
+        position = {"x":cur_x,"y":cur_y}
+
         for i in range(N):
             for j in range(N):
+
                 if B[i][j] == empty_space:
+
                     dx = min ( abs(cur_x - i) , N - abs(cur_x - i) )
                     dy = min ( abs(cur_y - j) , N - abs(cur_y - j) )
                     cur_dis = dx+dy
-                    if cur_dis < dis:
-                        dis = cur_dis
-                        best["x"] = i 
-                        best["y"] = j 
+                    if cur_dis < max_d:
+                        max_d = cur_dis
+                        position["x"] = i 
+                        position["y"] = j 
 
         
-        if best["x"] > cur_x:
-            if best["x"]-cur_x < N/2:
+        if position["x"] > cur_x:
+            if position["x"]-cur_x < N/2:
                 return (1,0)
             else:
                 return (-1,0)
 
-        if best["x"] < cur_x:
-            if cur_x-best["x"] < N/2:
+        if position["x"] < cur_x:
+            if cur_x-position["x"] < N/2:
                 return (-1,0)
             else:
                 return (1,0)
 
-        if best["y"] > cur_y:
-            if best["y"]-cur_y < N/2:
+        if position["y"] > cur_y:
+            if position["y"]-cur_y < N/2:
                 return (0,1)
             else:
                 return (0,-1)
 
-        if best["y"] < cur_y:
-            if cur_y-best["y"] < N/2:
+        if position["y"] < cur_y:
+            if cur_y-position["y"] < N/2:
                 return (0,-1)
             else:
                 return (0,1)
 
         return (0,0)
-
